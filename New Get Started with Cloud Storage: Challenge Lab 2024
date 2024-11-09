@@ -29,13 +29,13 @@ run_form_1() {
 
 run_form_2() {
   export BUCKET="$(gcloud config get-value project)"
-  gsutil mb -c nearline gs://$BUCKET-bucket
-  gcloud alpha storage buckets update gs://$BUCKET-gcs-bucket --no-uniform-bucket-level-access
-  gsutil acl ch -u $USER_EMAIL:OWNER gs://$BUCKET-gcs-bucket
-  gsutil rm gs://$BUCKET-gcs-bucket/sample.txt
+  gsutil mb -c nearline gs://$BUCKET-bucket1
+  gcloud alpha storage buckets update gs://$BUCKET-gcs-bucke1t --no-uniform-bucket-level-access
+  gsutil acl ch -u $USER_EMAIL:OWNER gs://$BUCKET-gcs-bucket1
+  gsutil rm gs://$BUCKET-gcs-bucket1/sample.txt
   echo "subscibe to quicklab" > sample.txt
-  gsutil cp sample.txt gs://$BUCKET-gcs-bucket
-  gsutil acl ch -u allUsers:R gs://$BUCKET-gcs-bucket/sample.txt
+  gsutil cp sample.txt gs://$BUCKET-gcs-bucket1
+  gsutil acl ch -u allUsers:R gs://$BUCKET-gcs-bucket1/sample.txt
   gcloud storage buckets update gs://$BUCKET-bucket-ops --update-labels=key=value
 }
 
